@@ -4,6 +4,7 @@ const { check, validationResult } = require("express-validator");
 const router = express.Router();
 const Profile = require("../../models/Profile");
 const User = require("../../models/User");
+const request = require('request');
 
 // @route GET api/profile
 // @desc Get logged user profile
@@ -291,5 +292,9 @@ router.delete('/education/:edu_id', auth, async (req, res) => {
     return res.status(500).send('Server Error');
   }
 });
+
+// @route  Get api/profile/github/:username
+// @desc  Get user repos from github
+// 
 
 module.exports = router;
